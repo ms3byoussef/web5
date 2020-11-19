@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img class="logo" src="img/logo.png">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="img/user.png" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <p>Very good design and idea, How do you also add a function on clicking thumbnails so that images changes as in arrow click also smooth transition between image change, I think it will make the design complete with these additions
+
+                </p>
+                <input type="text" placeholder="Search">
+            </div>
+
+        </div>
+        <div class="slider">
+            <img src="img/left-arrow.png"  id="prev" alt="">
+                <div class="preview">
+                    <img src="img/small1.png" class="active tamp">
+                    <img src="img/small2.png" class="tamp">
+                    <img src="img/small3.png" class="tamp">
+                    <img src="img/small4.png" class="tamp">
+                    <img src="img/small5.png" class="tamp">
+
+                </div>
+            <img src="img/right-arrow.png"  id="next"  alt="">
+        </div>
+    </div>
+
+
+
+    <script>
+        var prev =document.getElementById("prev");
+        var next =document.getElementById("next");
+        var hero =document.getElementById("hero");
+        var tamp =document.getElementsByClassName("tamp");
+
+        var backgroundimg = new Array(
+
+            "img/bg1.png",
+            "img/bg2.png",
+            "img/bg3.png",
+            "img/bg4.png",
+            "img/bg5.png",
+
+
+        );
+
+        let i = 0 ;
+        
+        next.onclick = () => {
+            if(i < 4)
+            {
+                hero.style.backgroundImage=`url("${backgroundimg[i+1]}")`;
+                tamp[i+1].classList.add("active");
+                tamp[i].classList.remove("active");
+
+                i++;
+            }
+        }
+
+        prev.onclick = () => {
+            if(i > 0)
+            {
+                hero.style.backgroundImage=`url("${backgroundimg[i-1]}")`;
+                tamp[i-1].classList.add("active");
+                tamp[i].classList.remove("active");
+                i--;
+                
+            }
+        }
+    </script>
+</body>
+
+</html>
